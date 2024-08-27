@@ -1,0 +1,104 @@
+<h2>Lista Klijenata</h2>
+<table>
+  <thead>
+    <tr>
+      <th>JMBG Klijenta</th>
+      <th>Ime Klijenta</th>
+      <th>Prezime Klijenta</th>
+      <th>Tip Klijenta</th>
+      <th>Ugovori</th>
+      <th>Svi ugovori</th>
+      <th>Dodaj ugovor</th>
+      <th>Obriši klijenta</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let klijent of klijenti">
+      <td>{{ klijent.jmbgKlijenta }}</td>
+      <td>{{ klijent.imeKlijenta }}</td>
+      <td>{{ klijent.prezimeKlijenta }}</td>
+      <td>{{ klijent.tipKlijenta.nazivTipa }}</td>
+      <td>
+        <ul>
+          <li *ngFor="let ugovor of klijent.ugovori">
+            {{ ugovor.adresaNekretnine }} ({{ ugovor.datumZakljucenja| date:'dd.MM.yyyy' }})
+          </li>
+        </ul>
+      </td>
+      <td><button (click)="getSpecificKlijent(klijent.jmbgKlijenta)">Vidi sve ugovore</button></td>
+      <td><button (click)="otvoriFormuNoviUgovor(klijent.jmbgKlijenta)">Dodaj ugovor</button></td>
+      <td><button (click)="obrisiKlijenta(klijent.jmbgKlijenta)">Obriši klijenta</button></td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="dodajUgovorIndicator==true">
+  <div>
+    <h2>Dodaj Novi Ugovor</h2>
+    <form >
+      <div>
+        <label for="brojUgovora">Broj Ugovora:</label>
+        <input type="number" id="brojUgovora" name="brojUgovora" [(ngModel)]="noviUgovor.brojUgovora" required>
+      </div>
+  
+      <div>
+        <label for="adresaNekretnine">Adresa Nekretnine:</label>
+        <input type="text" id="adresaNekretnine" name="adresaNekretnine" [(ngModel)]="noviUgovor.adresaNekretnine" required>
+      </div>
+  
+      <div>
+        <label for="povrsinaNepokretnosti">Površina Nepokretnosti (m²):</label>
+        <input type="number" id="povrsinaNepokretnosti" name="povrsinaNepokretnosti" [(ngModel)]="noviUgovor.povrsinaNepokretnosti" step="0.01" required>
+      </div>
+  
+      <div>
+        <label for="sprat">Sprat:</label>
+        <input type="number" id="sprat" name="sprat" [(ngModel)]="noviUgovor.sprat" required>
+      </div>
+  
+      <div>
+        <label for="datumZakljucenja">Datum Zaključenja:</label>
+        <input type="date" id="datumZakljucenja" name="datumZakljucenja" [(ngModel)]="noviUgovor.datumZakljucenja" required>
+      </div>
+  
+      <div>
+        <label for="cena">Cena:</label>
+        <input type="number" id="cena" name="cena" [(ngModel)]="noviUgovor.cena" step="0.01" required>
+      </div>
+      <div> 
+      <button (click)="dodajUgovor()">Dodaj Ugovor</button>
+    </div>
+    </form>
+  </div>
+  
+</div>
+
+<div *ngIf="klijentUgovori.ugovori.length>0">
+  <h2>Ugovori odabranog klijenta</h2>
+<table>
+  <thead>
+    <tr>
+      <th>broj ugovora</th>
+      <th>adresa </th>
+      <th>površina nepokretnosti</th>
+      <th>sprat</th>
+      <th>datum zaključenja</th>
+      <th>cena</th>
+      <th>Brisanje</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ugo of klijentUgovori.ugovori">
+      <td>{{ ugo.brojUgovora }}</td>
+      <td>{{ ugo.adresaNekretnine }}</td>
+      <td>{{ ugo.povrsinaNepokretnosti }}</td>
+      <td>{{ ugo.sprat }}</td>
+      <td>{{ugo.datumZakljucenja}}</td>
+      <td>{{ugo.cena}}</td>
+      <td><button (click)="obrisiUgovor(klijentUgovori.jmbgKlijenta,ugo.brojUgovora)">Obrisi ugovor</button></td>
+      
+    </tr>
+  </tbody>
+</table>
+</div>
+

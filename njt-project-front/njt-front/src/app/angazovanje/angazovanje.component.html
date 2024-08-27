@@ -1,0 +1,79 @@
+<div class="form-container">
+    <h2>Dodaj Angažovanje</h2>
+    <form #angazovanjeForm="ngForm">
+      <div class="form-group">
+        <label for="rbAngazovanja">Redni Broj Angažovanja:</label>
+        <input type="number" id="rbAngazovanja" [(ngModel)]="angazovanje.rbAngazovanja" name="rbAngazovanja" required />
+      </div>
+  
+      <div class="form-group">
+        <label for="provizija">Provizija:</label>
+        <input type="number" id="provizija" [(ngModel)]="angazovanje.provizija" name="provizija" required />
+      </div>
+  
+      <div class="form-group">
+        <label for="realizovano">Realizovano:</label>
+        <input type="checkbox" id="realizovano" [(ngModel)]="angazovanje.realizovano" name="realizovano" />
+      </div>
+  
+      <div class="form-group">
+        <label for="agent">Agent:</label>
+        <select id="agent" [(ngModel)]="angazovanje.agent" name="agent" required>
+          <option *ngFor="let agent of agenti" [ngValue]="agent">{{ agent.imeAgenta }} {{ agent.prezimeAgenta }}</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="menadzer">Menadžer (ID):</label>
+        <input type="number" id="menadzer" [(ngModel)]="angazovanje.menadzer.id" name="menadzer" required />
+      </div>
+  
+      <div class="form-group">
+        <label for="klijent">Klijent:</label>
+        <select id="klijent" [(ngModel)]="angazovanje.klijent" name="klijent" (change)="onKlijentChange()" required>
+          <option *ngFor="let klijent of klijenti" [ngValue]="klijent">{{ klijent.imeKlijenta }} {{ klijent.prezimeKlijenta }}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="ugovor">Ugovor:</label>
+        <select id="ugovor" [(ngModel)]="angazovanje.ugovor" name="ugovor" required>
+          <option *ngFor="let ugovor of ugovori" [ngValue]="ugovor">{{ ugovor.brojUgovora }} - {{ ugovor.adresaNekretnine }}</option>
+        </select>
+      </div>
+
+      <div class="button-container">
+        <button type="submit" (click)="sacuvajAngazovanje()">Sačuvaj Angažovanje</button>
+        <button (click)="pogledajAngazovanja()"> Pogledaj angažovanja</button>
+      </div>
+    </form>
+  </div>
+
+  <table *ngIf="angazIndic" border="1">
+    <thead>
+      <tr>
+        <th>RB Angazovanja</th>
+        <th>Provizija</th>
+        <th>Realizovano</th>
+        <th>Agent</th>
+        <th>Menadžer</th>
+        <th>Ugovor</th>
+        <th>Klijent</th>
+        <th>Obriši angažovanje</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let angazovanje of angazovanja">
+        <td>{{ angazovanje.rbAngazovanja }}</td>
+        <td>{{ angazovanje.provizija }}</td>
+        <td>{{ angazovanje.realizovano ? 'Da' : 'Ne' }}</td>
+        <td>{{ angazovanje.agent.imeAgenta }} {{ angazovanje.agent.prezimeAgenta }}</td>
+        <td>{{ angazovanje.menadzer.imeMenadzera }} {{ angazovanje.menadzer.prezimeMenadzera }}</td>
+        <td>{{ angazovanje.ugovor.brojUgovora }}</td>
+        <td>{{ angazovanje.klijent.imeKlijenta }} {{ angazovanje.klijent.prezimeKlijenta }}</td>
+        <td><button (click)="obrisiAngazovanje(angazovanje.rbAngazovanja)">Obriši</button></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  

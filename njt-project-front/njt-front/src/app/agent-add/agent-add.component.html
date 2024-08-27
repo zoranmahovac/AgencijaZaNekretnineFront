@@ -1,0 +1,28 @@
+<h2 class="form-title">Dodaj Novog Agenta</h2>
+<form (ngSubmit)="onSubmit()" #agentForm="ngForm" class="agent-form">
+  <div class="form-group">
+    <label for="redniBroj">Redni Broj:</label>
+    <input type="number" id="redniBroj" [(ngModel)]="agent.redniBrojURegistruPosrednika" name="redniBroj" required>
+  </div>
+  <div class="form-group">
+    <label for="ime">Ime:</label>
+    <input type="text" id="ime" [(ngModel)]="agent.imeAgenta" name="ime" required>
+  </div>
+  <div class="form-group">
+    <label for="prezime">Prezime:</label>
+    <input type="text" id="prezime" [(ngModel)]="agent.prezimeAgenta" name="prezime" required>
+  </div>
+  <div class="form-group">
+    <label for="adresa">Adresa:</label>
+    <input type="text" id="adresa" [(ngModel)]="agent.adresaAgenta" name="adresa" required>
+  </div>
+  <div class="form-group">
+    <label for="uspesnost">Uspesnost Realizacije:</label>
+    <input type="number" id="uspesnost" [(ngModel)]="agent.uspesnostRealizacije" name="uspesnost" required>
+  </div>
+  <div class="form-group">
+    <label for="brojKlijenata">Broj Dodeljenih Klijenata:</label>
+    <input type="number" id="brojKlijenata" [(ngModel)]="agent.brojDodeljenihKlijenata" name="brojKlijenata" required>
+  </div>
+  <button type="submit" class="submit-button">Sačuvaj Agenta</button>
+</form>

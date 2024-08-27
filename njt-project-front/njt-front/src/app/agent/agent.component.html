@@ -1,0 +1,29 @@
+<h2>Lista Agenata</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Ime Agenta</th>
+      <th>Prezime Agenta</th>
+      <th>Redni Broj</th>
+      <th>Adresa</th>
+      <th>Uspesnost Realizacije</th>
+      <th>Broj Dodeljenih Klijenata</th>
+      <th>Brisanje</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let agent of agents">
+      <td>{{ agent.imeAgenta }}</td>
+      <td>{{ agent.prezimeAgenta }}</td>
+      <td>{{ agent.redniBrojURegistruPosrednika }}</td>
+      <td>{{ agent.adresaAgenta }}</td>
+      <td>{{ agent.uspesnostRealizacije }}%</td>
+      <td>{{ agent.brojDodeljenihKlijenata }}</td>
+      <td>
+        <button (click)="deleteAgent(agent.redniBrojURegistruPosrednika)">Obriši Agenta</button>
+      </td>
+    
+    </tr>
+  </tbody>
+</table>
+

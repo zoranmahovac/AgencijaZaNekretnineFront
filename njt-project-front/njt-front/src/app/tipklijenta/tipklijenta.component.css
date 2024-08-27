@@ -1,0 +1,90 @@
+/* Stilizovanje tabele */
+table {
+    width: 100%;
+    border-collapse: collapse; /* Spaja ivice ćelija da ne bi bilo duplih linija */
+  }
+  
+  /* Stilizovanje zaglavlja tabele */
+  th, td {
+    border: 1px solid #ddd; /* Svetlosiva ivica */
+    padding: 8px; /* Razmak unutar ćelija */
+    text-align: left; /* Poravnanje teksta levo */
+  }
+  
+  /* Stilizovanje zaglavlja tabele */
+  th {
+    background-color: #032836; /* Svetlosiva pozadina za zaglavlje */
+    font-weight: bold; /* Deblji font za zaglavlje */
+  }
+  
+  /* Stilizovanje redova */
+  tr:nth-child(even) {
+    background-color: #f9f9f9; /* Svetlosiva pozadina za parne redove */
+  }
+  
+  /* Stilizovanje redova pri prelaženju mišem */
+  tr:hover {
+    background-color: #f1f1f1; /* Malo tamnija pozadina pri prelaženju mišem */
+  }
+  
+  /* Stilizovanje celija u prvom redu za bolju vidljivost */
+  thead th {
+    border-bottom: 2px solid #333; /* Tamnija ivica za zaglavlje */
+    color:white;
+  }
+  
+  /* Stilizovanje ivica celija */
+  td, th {
+    border-right: 1px solid #ddd; /* Desna ivica */
+  }
+  
+  td:last-child, th:last-child {
+    border-right: none; /* Uklanjanje desne ivice za poslednju kolonu */
+  }  
+  .button-container {
+    display: flex;
+    justify-content: center; /* Centriraj dugme horizontalno */
+    margin-top: 20px; /* Razmak iznad dugmeta */
+    gap: 10px;
+  }
+
+
+
+  .form-container {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+  }
+  
+  .form-container h3 {
+    margin-top: 0;
+  }
+  
+  .form-container label {
+    display: block;
+    margin: 10px 0 5px;
+  }
+  
+  .form-container input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .form-container button {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .form-container button:hover {
+    background-color: #0056b3;
+  }

@@ -1,0 +1,63 @@
+<div class="form-container klijent-form-container">
+    <form>
+      <h2>Kreiraj Klijenta</h2>
+      <div class="form-group">
+        <label>JMBG Klijenta:</label>
+        <input [(ngModel)]="klijent.jmbgKlijenta" name="jmbgKlijenta" required />
+      </div>
+      <div class="form-group">
+        <label>Ime Klijenta:</label>
+        <input [(ngModel)]="klijent.imeKlijenta" name="imeKlijenta" required />
+      </div>
+      <div class="form-group">
+        <label>Prezime Klijenta:</label>
+        <input [(ngModel)]="klijent.prezimeKlijenta" name="prezimeKlijenta" required />
+      </div>
+      <div class="form-group">
+        <label>Tip Klijenta:</label>
+        <select [(ngModel)]="klijent.tipKlijenta" name="tipKlijenta">
+          <option *ngFor="let tip of tipoviKlijenata" [ngValue]="tip">{{ tip.nazivTipa }}</option>
+        </select>
+      </div>
+    </form>
+  </div>
+  <div class="form-container ugovor-form-container">
+    <form>
+      <h2>Dodaj Ugovor</h2>
+      <div class="form-group">
+        <label>Broj Ugovora:</label>
+        <input type="number" [(ngModel)]="ugovor.brojUgovora" name="brojUgovora" required />
+      </div>
+      <div class="form-group">
+        <label>Adresa Nekretnine:</label>
+        <input [(ngModel)]="ugovor.adresaNekretnine" name="adresaNekretnine" required />
+      </div>
+      <div class="form-group">
+        <label>Datum Zaključenja:</label>
+        <input type="date" [(ngModel)]="ugovor.datumZakljucenja" name="datumZakljucenja" required />
+      </div>
+      <div class="form-group">
+        <label>Cena:</label>
+        <input type="number" [(ngModel)]="ugovor.cena" name="cena" required />
+      </div>
+      <div class="form-group">
+        <label>Sprat:</label>
+        <input type="number" [(ngModel)]="ugovor.sprat" name="sprat" required />
+      </div>
+      <div class="form-group">
+        <label>Površina nepokretnosti:</label>
+        <input type="number" [(ngModel)]="ugovor.povrsinaNepokretnosti" name="povrsinaNepokretnosti" required />
+      </div>
+
+      <div class="button-container">
+        <button type="button" (click)="addUgovor()">Dodaj Ugovor</button>
+        <button type="submit" (click)="saveKlijent()">Sačuvaj Klijenta</button>
+      </div>
+      
+      
+    </form>
+  </div>
+  
+  
+  
+  

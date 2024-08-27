@@ -1,0 +1,46 @@
+/* Stilizovanje cele tabele */
+table {
+    width: 100%;
+    border-collapse: collapse; /* Spoji granice ćelija */
+    margin: 20px 0; /* Dodaj marginu oko tabele */
+    font-family: Arial, sans-serif; /* Font tabele */
+  }
+  
+  /* Stilizovanje zaglavlja tabele */
+  thead {
+    background-color: #032836; /* Tamnozeleni pozadina za zaglavlje */
+    color: white; /* Bela boja teksta u zaglavlju */
+  }
+  
+  th, td {
+    border: 1px solid #ddd; /* Svetlosiva granica oko ćelija */
+    padding: 12px; /* Prostor unutar ćelija */
+    text-align: left; /* Poravnavanje teksta ulevo */
+  }
+  
+  /* Stilizovanje redova tabele */
+  tr:nth-child(even) {
+    background-color: #f2f2f2; /* Svetlosiva pozadina za parne redove */
+  }
+  
+  tr:hover {
+    background-color: #ddd; /* Tamnija pozadina za redove pri prelasku miša */
+  }
+  
+  /* Stilizovanje naslova kolona */
+  th {
+    padding: 12px; /* Prostor unutar naslova kolona */
+    font-weight: bold; /* Podebljan tekst */
+  }
+  
+  /* Stilizovanje liste ugovora unutar ćelije */
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none; /* Ukloni tačke ispred stavki */
+  }
+  
+  li {
+    padding: 2px 0; /* Prostor između stavki liste */
+  }
+  

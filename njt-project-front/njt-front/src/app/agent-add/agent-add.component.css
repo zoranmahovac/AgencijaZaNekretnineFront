@@ -1,0 +1,62 @@
+/* Stilizovanje forme */
+.form-title {
+    font-size: 24px; /* Veličina fonta naslova */
+    color: #333; /* Tamno siva boja teksta */
+    text-align: center; /* Poravnanje naslova na sredinu */
+    margin-bottom: 20px; /* Razmak ispod naslova */
+    font-weight: 600; /* Deblji font za naslove */
+  }
+  
+
+
+
+.agent-form {
+    max-width: 600px; /* Maksimalna širina forme */
+    margin: 0 auto; /* Centriranje forme */
+    padding: 20px; /* Razmak unutar forme */
+    border: 1px solid #ddd; /* Svetla ivica oko forme */
+    border-radius: 8px; /* Zaobljeni uglovi */
+    background-color: #f9f9f9; /* Pozadina forme */
+  }
+  
+  /* Stilizovanje grupa za unos */
+  .form-group {
+    margin-bottom: 15px; /* Razmak između grupa */
+  }
+  
+  /* Stilizovanje labela */
+  .form-group label {
+    display: block; /* Labela kao blok element */
+    margin-bottom: 5px; /* Razmak ispod labele */
+    font-weight: bold; /* Deblji font za labelu */
+  }
+  
+  /* Stilizovanje input polja */
+  .form-group input {
+    width: 100%; /* Širina input polja da se poklapa sa roditeljskim elementom */
+    padding: 10px; /* Razmak unutar input polja */
+    border: 1px solid #ccc; /* Svetlo siva ivica */
+    border-radius: 4px; /* Zaobljeni uglovi input polja */
+    box-sizing: border-box; /* Uključuje padding i border u širinu i visinu elementa */
+  }
+  
+  /* Stilizovanje dugmeta za slanje */
+  .submit-button {
+    background-color: #032836; /* Pozadina dugmeta */
+    color: white; /* Boja teksta na dugmetu */
+    border: none; /* Bez ivica oko dugmeta */
+    padding: 15px 20px; /* Razmak unutar dugmeta */
+    text-align: center; /* Tekst poravnat u sredinu */
+    text-decoration: none; /* Bez podvlačenja teksta */
+    display: inline-block; /* Inline blok za poravnavanje */
+    font-size: 16px; /* Veličina fonta */
+    margin-top: 10px; /* Razmak iznad dugmeta */
+    border-radius: 4px; /* Zaobljeni uglovi dugmeta */
+    cursor: pointer; /* Pokazivač miša kao ruka pri prelasku preko dugmeta */
+    transition: background-color 0.3s; /* Glatka promena boje pozadine */
+  }
+  
+  .submit-button:hover {
+    background-color: #656765; /* Tamnija boja pozadine kada se mišem prelazi preko dugmeta */
+  }
+  

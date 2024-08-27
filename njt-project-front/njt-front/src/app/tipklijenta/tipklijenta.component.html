@@ -1,0 +1,112 @@
+<h2>Tipovi Klijenata</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Šifra Tip</th>
+      <th>Naziv Tip</th>
+      <th>Akcije</th>
+      <th>Pogledaj statistiku tipa</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let tip of tipoviKlijenata">
+      <td>{{ tip.sifraTipa }}</td>
+      <td>{{ tip.nazivTipa }}</td>
+      <td>
+        <button (click)="deleteTipKlijenta(tip.sifraTipa)">Obriši</button>
+      </td>
+      <td>
+        <button (click)="viewStatistics(tip.sifraTipa)">Statistika</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div class="button-container">
+  <button (click)="toggleForm()">
+    Da li želite da dodate novi tip klijenta?
+  </button>
+</div>
+
+<div *ngIf="showForm" class="form-container">
+  <h3>Dodaj Novog Tip Klijenta</h3>
+  <form (ngSubmit)="addTipKlijenta()">
+    <label for="sifraTipa">Šifra Tipa:</label>
+    <input type="number" id="sifraTipa" [(ngModel)]="tipKlijentaAdd.sifraTipa" name="sifraTipa" required>
+
+    <label for="nazivTipa">Naziv Tipa:</label>
+    <input type="text" id="nazivTipa" [(ngModel)]="tipKlijentaAdd.nazivTipa" name="nazivTipa" required>
+
+    <button type="submit">Dodaj Tip Klijenta</button>
+
+  </form>
+
+</div>
+
+<div *ngIf="viewStatIndicator">
+  <h3>Odaberite agenta</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Ime Agenta</th>
+        <th>Prezime Agenta</th>
+        <th>Redni Broj</th>
+        <th>Adresa</th>
+        <th>Uspesnost Realizacije</th>
+        <th>Broj Dodeljenih Klijenata</th>
+        <th>Odaberi agenta</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let agent of agentsStat">
+        <td>{{ agent.imeAgenta }}</td>
+        <td>{{ agent.prezimeAgenta }}</td>
+        <td>{{ agent.redniBrojURegistruPosrednika }}</td>
+        <td>{{ agent.adresaAgenta }}</td>
+        <td>{{ agent.uspesnostRealizacije }}%</td>
+        <td>{{ agent.brojDodeljenihKlijenata }}</td>
+        <td><button (click)="setRuburp(agent.redniBrojURegistruPosrednika)">Odaberi agenta</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div *ngIf="statistike.length>0">
+  <h3>Postojeće statistike:</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Id statistike</th>
+        <th>Ime Agenta</th>
+        <th>Prezime Agenta</th>
+        <th>Naziv tipa klijenta</th>
+        <th>Broj Dodeljenih Klijenata</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let stat of statistike">
+        <td>{{stat.id.id}}</td>
+        <td>{{ stat.agent.imeAgenta }}</td>
+        <td>{{ stat.agent.prezimeAgenta }}</td>
+        <td>{{ stat.tipKlijenta.nazivTipa }}</td>
+        <td>{{ stat.brojDodeljenihKLijenataTipa }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
